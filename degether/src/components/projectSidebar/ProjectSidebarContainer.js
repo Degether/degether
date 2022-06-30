@@ -5,6 +5,7 @@ function ProjectSidebarContainer() {
   return (
     <ProjectSidebarContainerWrap>
       {/* 상단 참여 중 프로젝트 */}
+
       <ProjectSidebarTop>
         <span className="material-symbols-outlined">folder</span>
         <TopText>참여 중 프로젝트</TopText>
@@ -19,15 +20,16 @@ function ProjectSidebarContainer() {
         </ProjectAddBtnText>
       </ProjectAddBtn>
 
-      {/* 프로젝트 배경 이미지 */}
+      <Test>
+        {/* 프로젝트 배경 이미지 */}
+        <ProjectdBackgroundImg src="./images/Degether.png" />
 
-      <ProjectdBackgroundImg src="./images/Degether.png" />
-
-      {/* 프로젝트 상세 정보 게시물 리스트 */}
-      <ProjectList>
-        <p>디게더(프로젝트 매칭 시스템)</p>
-        <p>참여인원 [개발자 / 5명] [디자이너 / 1명]</p>
-      </ProjectList>
+        {/* 프로젝트 상세 정보 게시물 리스트 */}
+        <ProjectList>
+          <p>디게더(프로젝트 매칭 시스템)</p>
+          <p>참여인원 [개발자 / 5명] [디자이너 / 1명]</p>
+        </ProjectList>
+      </Test>
     </ProjectSidebarContainerWrap>
   );
 }
@@ -41,16 +43,19 @@ const ProjectSidebarContainerWrap = styled.div`
   height: 898px;
   background-color: #09120e;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+`;
+
+const Test = styled.div`
+  width: 421px;
 `;
 
 const ProjectSidebarTop = styled.div`
-  width: 196px;
+  width: 421px;
   height: 34px;
   color: white;
   display: flex;
-  border: 1px solid white;
   align-items: center;
   margin-top: 15px;
 `;
@@ -93,7 +98,6 @@ const ProjectdBackgroundImg = styled.img`
 const ProjectList = styled.div`
   width: 214px;
   height: 34px;
-  border: 1px solid white;
   font-family: "Noto Sans KR";
   font-style: normal;
   font-weight: 700;
