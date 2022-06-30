@@ -30,7 +30,6 @@ const BarContainer = styled.div`
   margin: 33px;
   border-radius: 54px;
   display: flex;
-  align-items: center;
   svg {
     margin-left: 18px;
   }
