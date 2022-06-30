@@ -1,5 +1,6 @@
-import Card from "../components/Card";
 import styled from "styled-components";
+
+import Card from "../components/main/Card";
 
 function Main() {
   return (
