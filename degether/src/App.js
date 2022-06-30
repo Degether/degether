@@ -1,8 +1,8 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import MyPage from "./pages/MyPage";
+import React from "react";
 import Header from "./components/Header";
-
 import Main from "./pages/Main";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </div>
   );
