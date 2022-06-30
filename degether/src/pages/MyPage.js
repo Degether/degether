@@ -12,43 +12,59 @@ function MyPage() {
   ];
 
   return (
-    <MyPageWrap>
-      {/* 마이페이지 헤더 아래부분 공개 프로필 수정 텍스트 영역 */}
-      <MyPageTop>공개 프로필 수정</MyPageTop>
+    <MyPageContainer>
+      <MyPageWrap>
+        {/* 마이페이지 헤더 아래부분 공개 프로필 수정 텍스트 영역 */}
+        <MyPageTop>공개 프로필 수정</MyPageTop>
 
-      {/* 마이페이지 중앙 내용 수정 부분 */}
-      <MyPageContentContainer>
-        {/* 좌측 이미지 미리보기 */}
-        <MyPageContentPreviewImg></MyPageContentPreviewImg>
+        {/* 마이페이지 중앙 내용 수정 부분 */}
+        <MyPageContentContainer>
+          {/* 좌측 이미지 미리보기 */}
+          <MyPageContentPreviewImg></MyPageContentPreviewImg>
 
-        {/* 중앙 이미지 업로드 */}
-        <MypageContentUploadImg>
-          <MyPageContentUploadIcon src="./images/UploadIcon.png" />
-          <p>
-            프로필 사진 <br />
-            업로드 & 변경
-          </p>
-        </MypageContentUploadImg>
+          {/* 중앙 이미지 업로드 */}
+          <MypageContentUploadImg>
+            <MyPageContentUploadIcon src="./images/UploadIcon.png" />
+            <p>
+              프로필 사진 <br />
+              업로드 & 변경
+            </p>
+          </MypageContentUploadImg>
 
-        {/* 우측 정보 변경 하는 영역 */}
-        <MyPageContentInfor>
-          {category.map((l, index) => {
-            return <MyPageInforContainer category={l} />;
-          })}
-        </MyPageContentInfor>
-      </MyPageContentContainer>
-    </MyPageWrap>
+          {/* 우측 정보 변경 하는 영역 */}
+          <MyPageContentInfor>
+            {category.map((l, index) => {
+              return <MyPageInforContainer category={l} />;
+            })}
+          </MyPageContentInfor>
+        </MyPageContentContainer>
+      </MyPageWrap>
+
+      {/* 재설정 저장 버튼 컨테이너 */}
+      <ResetSaveBtnContainer>
+        <ResetBtn>재설정</ResetBtn>
+        <SaveBtn>저장</SaveBtn>
+      </ResetSaveBtnContainer>
+    </MyPageContainer>
   );
 }
 
 export default MyPage;
 
-const MyPageWrap = styled.div`
-  width: 1371px;
-  margin: 32px;
+const MyPageContainer = styled.div`
+  width: 1435px;
 `;
 
-const MyPageTop = styled.div``;
+const MyPageWrap = styled.div`
+  width: 1371px;
+  margin: 0 auto;
+`;
+
+const MyPageTop = styled.div`
+  font-weight: 700;
+  font-size: 22px;
+  margin: 32px 0;
+`;
 
 const MyPageContentContainer = styled.div`
   width: 1371px;
@@ -86,4 +102,28 @@ const MyPageContentInfor = styled.div`
   flex-direction: column;
   border: 1px solid #efefef;
   gap: 20px;
+`;
+
+const ResetSaveBtnContainer = styled.div`
+  width: 1371px;
+  margin: 16px auto;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const ResetBtn = styled.button`
+  padding: 16px 32px;
+  margin-right: 10px;
+  border: none;
+  background-color: #09120e;
+  border-radius: 10px;
+  color: #f0f0f0;
+`;
+
+const SaveBtn = styled.button`
+  padding: 16px 32px;
+  background-color: #09120e;
+  border: none;
+  border-radius: 10px;
+  color: #f0f0f0;
 `;
