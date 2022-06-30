@@ -15,7 +15,7 @@ const Card = () => {
           <Dday>
             <span>D</span>-10
           </Dday>
-          <img src="img/Rectangle 22.png" />
+          <img src="img/Rectangle 22.png" alt="프로젝트썸네일" />
           <Pin>
             <svg
               width="7"
@@ -42,7 +42,6 @@ const Card = () => {
 const CardContainer = styled.div`
   width: 218px;
   border-radius: 10px;
-  margin-top: 215px;
   display: flex;
   flex-direction: column;
 `;
