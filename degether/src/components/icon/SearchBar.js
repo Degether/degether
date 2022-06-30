@@ -34,6 +34,7 @@ const BarContainer = styled.div`
     margin-left: 18px;
   }
   input {
+    width: 1100px;
     height: 22px;
     margin-left: 8px;
     font-weight: 400;
