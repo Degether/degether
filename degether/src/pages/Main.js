@@ -1,14 +1,35 @@
 import styled from "styled-components";
-import Card from "../components/main/Card";
+import Card, { Card2 } from "../components/main/Card";
 import LoginContainer from "../components/login/LoginContainer";
+import { useState } from "react";
 
 function Main() {
+  const [firstRow, setFirstRow] = useState([Card, Card2]);
   return (
     <>
       <MainContainer>
         <CardGrid>
-          {Array.from({ length: 32 }, (item, idx) => {
-            return <Card key={idx} />;
+          {Array.from({ length: 6 }, (item, idx) => {
+            return (
+              <>
+                {Array.from({ length: 1 }, (item, idx) => {
+                  return (
+                    <div key={idx}>
+                      <Card />
+                      <Card2 />
+                    </div>
+                  );
+                })}
+                {Array.from({ length: 1 }, (item, idx) => {
+                  return (
+                    <div key={idx}>
+                      <Card2 />
+                      <Card />
+                    </div>
+                  );
+                })}
+              </>
+            );
           })}
         </CardGrid>
         <LoginContainer />
@@ -28,7 +49,7 @@ const CardGrid = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(6, 218px);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(2, 284px, 466px);
   grid-column-gap: 16px;
   grid-row-gap: 16px;
 `;
