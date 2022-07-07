@@ -33,6 +33,7 @@ const MenuContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 120px;
+
   left: 0px;
   top: 62px;
   background: #09120e;
@@ -45,7 +46,7 @@ const MenuContainer = styled.div`
   }
 `;
 const MenuBar = styled.div`
-  width: 1888px;
+  width: 1920px;
   position: relative;
   margin: 0 auto;
 `;
