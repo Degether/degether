@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-function ProjectSidebarContainer() {
+function ProjectSidebarContainer(props) {
   return (
     <ProjectSidebarContainerWrap>
       {/* 상단 참여 중 프로젝트 */}
@@ -45,6 +45,7 @@ const ProjectSidebarContainerWrap = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 182px;
 `;
 
 const Test = styled.div`

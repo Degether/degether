@@ -19,8 +19,8 @@ const Card = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M7 5.435C7 5.2 6.83 5.01 6.6 4.945C5.965 4.77 5.5 4.19 5.5 3.5V1H6C6.275 1 6.5 0.775 6.5 0.5C6.5 0.225 6.275 0 6 0H1C0.725 0 0.5 0.225 0.5 0.5C0.5 0.775 0.725 1 1 1H1.5V3.5C1.5 4.19 1.035 4.77 0.4 4.945C0.17 5.01 0 5.2 0 5.435V5.5C0 5.775 0.225 6 0.5 6H2.99L3 9.5C3 9.775 3.225 10 3.5 10C3.775 10 4 9.775 4 9.5L3.99 6H6.5C6.775 6 7 5.775 7 5.5V5.435Z"
                 fill="#EB3223"
               />
@@ -29,63 +29,23 @@ const Card = () => {
           </Pin>
         </CardImg>
         <CardText>
-          프로젝트 스케줄러 쿱(COUP)
+          프로젝트명
           <br />
-          <HeadCount>모집인원</HeadCount>{" "}
-          <HeadcountValue>[개발자 / 2명] [디자이너 / 2명]</HeadcountValue>
+          <HeadCount>
+            모집인원 <span>[개발자 / 2명] [디자이너 / 2명]</span>
+          </HeadCount>
+          <HeadcountValue>
+            참여인원 <span>[개발자 / 2명] [디자이너 / 2명]</span>
+          </HeadcountValue>
         </CardText>
       </CardContainer>
     </>
   );
 };
 
-const Card2 = () => {
-  return (
-    <>
-      <CardContainer2>
-        <CardImg2>
-          <Dday>
-            <span>D</span>-10
-          </Dday>
-          <img src="img/Rectangle 22.png" alt="프로젝트썸네일" />
-          <Pin>
-            <svg
-              width="7"
-              height="10"
-              viewBox="0 0 7 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M7 5.435C7 5.2 6.83 5.01 6.6 4.945C5.965 4.77 5.5 4.19 5.5 3.5V1H6C6.275 1 6.5 0.775 6.5 0.5C6.5 0.225 6.275 0 6 0H1C0.725 0 0.5 0.225 0.5 0.5C0.5 0.775 0.725 1 1 1H1.5V3.5C1.5 4.19 1.035 4.77 0.4 4.945C0.17 5.01 0 5.2 0 5.435V5.5C0 5.775 0.225 6 0.5 6H2.99L3 9.5C3 9.775 3.225 10 3.5 10C3.775 10 4 9.775 4 9.5L3.99 6H6.5C6.775 6 7 5.775 7 5.5V5.435Z"
-                fill="#EB3223"
-              />
-            </svg>
-            <PinCount>30</PinCount>
-          </Pin>
-        </CardImg2>
-        <CardText>
-          프로젝트 스케줄러 쿱(COUP)
-          <br />
-          <HeadCount>모집인원</HeadCount>{" "}
-          <HeadcountValue>[개발자 / 2명] [디자이너 / 2명]</HeadcountValue>
-        </CardText>
-      </CardContainer2>
-    </>
-  );
-};
 const CardContainer = styled.div`
-  width: 218px;
-  height: 284px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-`;
-const CardContainer2 = styled.div`
-  width: 218px;
-  height: 466px;
+  width: 214px;
+  height: 400px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -97,28 +57,24 @@ const CardText = styled.div`
   line-height: 17px;
   margin: 16px 6px 16px 6px;
 `;
-const HeadCount = styled.span`
+const HeadCount = styled.div`
   color: #2f4a3b;
-`;
-const HeadcountValue = styled.span`
-  color: #b34301;
-`;
-const CardImg = styled.div`
-  width: 218px;
-  height: 218px;
-  position: relative;
-  border-radius: 10px;
-  img {
-    width: 218px;
-    object-fit: cover;
+  span {
+    color: #b34301;
   }
 `;
-const CardImg2 = styled.div`
+const HeadcountValue = styled.div`
+  color: #2f4a3b;
+  span {
+    color: #b34301;
+  }
+`;
+
+const CardImg = styled.div`
   width: 218px;
-  height: 400px;
+  height: 300px;
   position: relative;
   border-radius: 10px;
-  background: #ddd;
   img {
     width: 218px;
     object-fit: cover;
@@ -149,7 +105,7 @@ const Pin = styled.div`
   left: 5px;
   width: 50px;
   height: 25px;
-  margin-bottom: 5px;
+  margin-bottom: 13px;
   background: #efefef;
   border-radius: 10px;
   display: flex;
@@ -162,4 +118,3 @@ const PinCount = styled.div`
   font-weight: 700;
 `;
 export default Card;
-export { Card2 };

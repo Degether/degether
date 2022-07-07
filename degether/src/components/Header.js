@@ -17,7 +17,7 @@ const Header = () => {
           <SearchBar />
           <IconContainer>
             <HomeIcon />
-            <NoticeIcon />
+            {/* <NoticeIcon /> */}
             <Profile />
           </IconContainer>
         </MenuBar>
