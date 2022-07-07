@@ -1,17 +1,30 @@
 import styled from "styled-components";
+import Header from "../components/Header";
 import Card from "../components/main/Card";
+import ProjectCreateModal from "../components/main/ProjectCreateModal";
 import LoginContainer from "../components/login/LoginContainer";
+import ProjectSidebarContainer from "../components/projectSidebar/ProjectSidebarContainer";
+import { useState } from "react";
 
 function Main() {
+  const [createModal, setCreateModal] = useState(true);
+
   return (
     <>
+      <Header />
       <MainContainer>
+        {createModal === true ? <ProjectCreateModal /> : null}
         <CardGrid>
-          {Array.from({ length: 32 }, (item, idx) => {
-            return <Card key={idx} />;
+          {Array.from({ length: 20 }, (item, idx) => {
+            return (
+              <div key={idx}>
+                <Card />
+              </div>
+            );
           })}
         </CardGrid>
-        <LoginContainer />
+        <ProjectSidebarContainer />
+        {/* <LoginContainer /> */}
       </MainContainer>
     </>
   );
@@ -28,7 +41,6 @@ const CardGrid = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(6, 218px);
-  grid-template-rows: auto;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
 `;
