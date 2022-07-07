@@ -4,6 +4,7 @@ import MyPageProfileSetting from "../components/myPage/MyPageProfileSetting";
 // import MyPageNotice from "../components/myPage/MyPageNotice";
 import MyPageParticipatedProject from "../components/myPage/MyPageParticipatedProject";
 import MyPageSideBar from "../components/myPage/MyPageSideBar";
+import MyPageLikedProjects from "../components/myPage/MyPageLikedProjects";
 
 function MyPage() {
   return (
@@ -13,6 +14,7 @@ function MyPage() {
         <MyPageProfileSetting />
         {/* <MyPageNotice /> */}
         <MyPageParticipatedProject />
+        <MyPageLikedProjects />
       </MyPageInforSection>
       <MyPageSideBar />
     </MyPageContainer>
