@@ -8,14 +8,16 @@ const Header = () => {
   return (
     <>
       <HeaderContainer></HeaderContainer>
-      <MenuBar>
-        <SearchBar />
-        <IconContainer>
-          <HomeIcon />
-          <NoticeIcon />
-          <Profile />
-        </IconContainer>
-      </MenuBar>
+      <MenuContainer>
+        <MenuBar>
+          <SearchBar />
+          <IconContainer>
+            <HomeIcon />
+            <NoticeIcon />
+            <Profile />
+          </IconContainer>
+        </MenuBar>
+      </MenuContainer>
     </>
   );
 };
@@ -27,7 +29,7 @@ const HeaderContainer = styled.div`
   top: 0px;
   background: #2f4a3b;
 `;
-const MenuBar = styled.div`
+const MenuContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 120px;
@@ -41,6 +43,11 @@ const MenuBar = styled.div`
     align-items: center;
     gap: 16px;
   }
+`;
+const MenuBar = styled.div`
+  width: 1888px;
+  position: relative;
+  margin: 0 auto;
 `;
 const IconContainer = styled.div`
   position: absolute;
