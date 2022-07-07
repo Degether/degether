@@ -27,14 +27,13 @@ const ProjectCreateModal = () => {
   };
 
   // <프로젝트 소개 자료(최대 2개)>
-  const [file, setFile] = useState([]);
+  const [file1, setFile1] = useState();
+  const [file2, setFile2] = useState();
   const handleUpload = (e) => {
     e.preventDefault();
-    let copy = file;
-    copy[0] = e.target.files[0];
-    copy[1] = e.target.files[1];
-    setFile(copy);
-    console.log(file);
+    setFile1(e.target.files[0]);
+    setFile2(e.target.files[1]);
+    console.log(file1, file2);
   };
 
   // <프로젝트명>
@@ -66,7 +65,7 @@ const ProjectCreateModal = () => {
   today = today.substring(0, 10);
 
   function submit() {
-    //<개발언어>
+    // <개발언어>
     let result = [];
     const query = 'input[name="language"]:checked';
     const selectedEls = document.querySelectorAll(query);
@@ -80,14 +79,14 @@ const ProjectCreateModal = () => {
     const projectRequestDto = {
       projectName: projectName.current.value,
       projectDescription: projectDescription.current.value,
-      feCount: feCount.current.value,
-      beCount: beCount.current.value,
-      deCount: deCount.current.value,
+      feCount: parseInt(feCount.current.value),
+      beCount: parseInt(beCount.current.value),
+      deCount: parseInt(deCount.current.value),
       github: github.current.value,
       figma: figma.current.value,
       deadLine: deadLine.current.value,
       language: result,
-      genre: "모바일앱",
+      genre: ["앱개발"],
       step: step,
     };
     console.log(projectRequestDto);
@@ -106,8 +105,11 @@ const ProjectCreateModal = () => {
       )
     );
     formData.append("thumbnail", thumbnail);
-    formData.append("infoFiles", file);
-    // dispatch(addProject(formData));
+    formData.append("infoFiles", file1);
+    formData.append("infoFiles", file2);
+    console.log(file1, file2);
+
+    dispatch(addProject(formData));
   }
 
   return (
@@ -159,7 +161,7 @@ const ProjectCreateModal = () => {
               </div>
             </Step>
           </ModalTop>
-          {/* 드롭다운 : 모바일앱, 웹 프로그램, 게임, 메타버스 ,블록체인, 임베디드, 데이터베이스 */}
+          {/* 드롭다운 : 모바일 앱, 웹 프로그램, 게임, 메타버스 ,블록체인, 임베디드, 데이터베이스 */}
           <ModalTop>
             <div>
               <label>프로젝트 장르</label> <input />

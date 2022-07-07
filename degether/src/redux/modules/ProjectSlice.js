@@ -10,7 +10,7 @@ export const addProject = createAsyncThunk(
     const response = await axios.post(`${SERVER_URL}/api/project`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
-        Authorization: localStorage.getItem("access_token"),
+        Authorization: localStorage.getItem("token"),
       },
     });
     return response.data;

@@ -5,6 +5,16 @@ const Card = () => {
   return (
     <>
       <CardContainer>
+        <CardText>
+          프로젝트명
+          <br />
+          <HeadCount>
+            모집인원 <span>[개발자 / 2명] [디자이너 / 2명]</span>
+          </HeadCount>
+          <HeadCount>
+            참여인원 <span>[개발자 / 2명] [디자이너 / 2명]</span>
+          </HeadCount>
+        </CardText>
         <CardImg>
           <Dday>
             <span>D</span>-10
@@ -28,16 +38,6 @@ const Card = () => {
             <PinCount>30</PinCount>
           </Pin>
         </CardImg>
-        <CardText>
-          프로젝트명
-          <br />
-          <HeadCount>
-            모집인원 <span>[개발자 / 2명] [디자이너 / 2명]</span>
-          </HeadCount>
-          <HeadcountValue>
-            참여인원 <span>[개발자 / 2명] [디자이너 / 2명]</span>
-          </HeadcountValue>
-        </CardText>
       </CardContainer>
     </>
   );
@@ -63,13 +63,6 @@ const HeadCount = styled.div`
     color: #b34301;
   }
 `;
-const HeadcountValue = styled.div`
-  color: #2f4a3b;
-  span {
-    color: #b34301;
-  }
-`;
-
 const CardImg = styled.div`
   width: 218px;
   height: 300px;
@@ -101,11 +94,10 @@ const Dday = styled.div`
 `;
 const Pin = styled.div`
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
   left: 5px;
   width: 50px;
   height: 25px;
-  margin-bottom: 13px;
   background: #efefef;
   border-radius: 10px;
   display: flex;

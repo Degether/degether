@@ -7,7 +7,7 @@ import ProjectSidebarContainer from "../components/projectSidebar/ProjectSidebar
 import { useState } from "react";
 
 function Main() {
-  const [createModal, setCreateModal] = useState(true);
+  const [createModal, setCreateModal] = useState(false);
 
   return (
     <>
@@ -15,7 +15,7 @@ function Main() {
       <MainContainer>
         {createModal === true ? <ProjectCreateModal /> : null}
         <CardGrid>
-          {Array.from({ length: 20 }, (item, idx) => {
+          {Array.from({ length: 18 }, (item, idx) => {
             return (
               <div key={idx}>
                 <Card />
@@ -23,8 +23,8 @@ function Main() {
             );
           })}
         </CardGrid>
-        <ProjectSidebarContainer />
-        {/* <LoginContainer /> */}
+        {/* <ProjectSidebarContainer /> */}
+        <LoginContainer />
       </MainContainer>
     </>
   );
