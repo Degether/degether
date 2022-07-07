@@ -1,38 +1,30 @@
 import styled from "styled-components";
-import Card, { Card2 } from "../components/main/Card";
+import Header from "../components/Header";
+import Card from "../components/main/Card";
+import ProjectCreateModal from "../components/main/ProjectCreateModal";
 import LoginContainer from "../components/login/LoginContainer";
+import ProjectSidebarContainer from "../components/projectSidebar/ProjectSidebarContainer";
 import { useState } from "react";
 
 function Main() {
-  const [firstRow, setFirstRow] = useState([Card, Card2]);
+  const [createModal, setCreateModal] = useState(true);
+
   return (
     <>
+      <Header />
       <MainContainer>
+        {createModal === true ? <ProjectCreateModal /> : null}
         <CardGrid>
-          {Array.from({ length: 6 }, (item, idx) => {
+          {Array.from({ length: 20 }, (item, idx) => {
             return (
-              <>
-                {Array.from({ length: 1 }, (item, idx) => {
-                  return (
-                    <div key={idx}>
-                      <Card />
-                      <Card2 />
-                    </div>
-                  );
-                })}
-                {Array.from({ length: 1 }, (item, idx) => {
-                  return (
-                    <div key={idx}>
-                      <Card2 />
-                      <Card />
-                    </div>
-                  );
-                })}
-              </>
+              <div key={idx}>
+                <Card />
+              </div>
             );
           })}
         </CardGrid>
-        <LoginContainer />
+        <ProjectSidebarContainer />
+        {/* <LoginContainer /> */}
       </MainContainer>
     </>
   );
@@ -49,7 +41,6 @@ const CardGrid = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(6, 218px);
-  grid-template-rows: repeat(2, 284px, 466px);
   grid-column-gap: 16px;
   grid-row-gap: 16px;
 `;
