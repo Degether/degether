@@ -42,6 +42,7 @@ const LoginContainerWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 182px;
 `;
 
 const LoginTitle = styled.div`
