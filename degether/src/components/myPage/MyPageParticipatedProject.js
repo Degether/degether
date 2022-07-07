@@ -28,6 +28,7 @@ const MyPageParticipatedProjectContainer = styled.div`
 
 const SharedText = styled.p`
   color: #d6e5d0;
+  font-size: 40px;
 `;
 
 const ParticipatedProjectBox = styled.div`
