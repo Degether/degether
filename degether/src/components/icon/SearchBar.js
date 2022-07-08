@@ -18,6 +18,7 @@ const SearchBar = () => {
           />
         </svg>
         <input type="text" placeholder="검색" />
+        <button>입력</button>
       </BarContainer>
     </>
   );
@@ -31,12 +32,11 @@ const BarContainer = styled.div`
   border-radius: 54px;
   display: flex;
   svg {
-    margin-left: 18px;
+    margin-left: 20px;
   }
   input {
     width: 1100px;
     height: 22px;
-    margin-left: 8px;
     font-weight: 400;
     font-size: 22px;
     color: #2f4a3b;
@@ -49,6 +49,23 @@ const BarContainer = styled.div`
     font-weight: 400;
     font-size: 22px;
     color: #2f4a3b;
+  }
+  button {
+    width: 100px;
+    height: 40px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+    outline: 0;
+    border: 0;
+    border-radius: 30px;
+    margin-right: 7px;
+    cursor: pointer;
   }
 `;
 export default SearchBar;

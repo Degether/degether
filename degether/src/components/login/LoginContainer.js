@@ -33,7 +33,6 @@ function LoginContainer() {
 export default LoginContainer;
 
 const LoginContainerWrap = styled.div`
-  margin-top: 180px;
   box-sizing: border-box;
   border-top: 0.5px solid #efefef;
   width: 453px;
@@ -42,7 +41,7 @@ const LoginContainerWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 182px;
+  margin-right: 16px;
 `;
 
 const LoginTitle = styled.div`
