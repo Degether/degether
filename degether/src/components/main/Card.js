@@ -143,5 +143,4 @@ const PinCount = styled.div`
   font-size: 12px;
   font-weight: 700;
 `;
-
 export default Card;

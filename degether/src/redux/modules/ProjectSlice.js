@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useCallback } from "react";
+
 
 const SERVER_URL = "http://3.39.253.203";
 

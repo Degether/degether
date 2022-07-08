@@ -18,7 +18,6 @@ const ProjectCreateModal = () => {
   const thumbnailUpload = (e) => {
     setThumbnail(e);
   };
-
   // 썸네일 미리보기
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
