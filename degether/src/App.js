@@ -13,10 +13,10 @@ import KakaoOAuthRedirectHandler from "./components/login/KakaoOAuthRedirectHand
 import NaverOAuthRedirectHandler from "./components/login/NaverOAuthRedirectHandler";
 import GoogleOAuthRedirectHandler from "./components/login/GoogleOAuthRedirectHandler";
 
-
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/mypage" element={<MyPage />} />
@@ -36,7 +36,6 @@ function App() {
           path="/auth/google/callback"
           element={<GoogleOAuthRedirectHandler />}
         />
-
       </Routes>
     </div>
   );

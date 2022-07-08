@@ -1,19 +1,23 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-
 import { addProject } from "../../redux/modules/ProjectSlice";
 
 const ProjectCreateModal = () => {
   const dispatch = useDispatch();
 
-  // <프로젝트 썸네일 이미지>
+  // 장르
+  const [genre, setGenre] = useState("");
+  const handleChange = (e) => {
+    setGenre([e.target.value]);
+  };
+
+  // 프로젝트 썸네일 이미지
   const [imageSrc, setImageSrc] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const thumbnailUpload = (e) => {
     setThumbnail(e);
   };
-  console.log(thumbnail);
   // 썸네일 미리보기
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -26,47 +30,45 @@ const ProjectCreateModal = () => {
     });
   };
 
-  // <프로젝트 소개 자료(최대 2개)>
-  const [file, setFile] = useState([]);
+  // 프로젝트 소개 자료
+  const [file1, setFile1] = useState();
+  const [file2, setFile2] = useState();
   const handleUpload = (e) => {
     e.preventDefault();
-    let copy = file;
-    copy[0] = e.target.files[0];
-    copy[1] = e.target.files[1];
-    setFile(copy);
-    console.log(file);
+    setFile1(e.target.files[0]);
+    setFile2(e.target.files[1]);
+    console.log(file1, file2);
   };
 
-  // <프로젝트명>
+  // 프로젝트명
   const projectName = useRef();
 
-  // <진행단계>
+  // 진행단계
   const [step, setStep] = useState("");
   const handleStep = (e) => {
     setStep(e.target.value);
   };
 
-  // <프로젝트 설명>
+  // 프로젝트 설명
   const projectDescription = useRef();
 
-  // <인원>
+  // 인원
   const feCount = useRef();
   const beCount = useRef();
   const deCount = useRef();
 
-  // <링크>
+  // 링크
   const github = useRef();
   const figma = useRef();
-  // const notion = useRef();
 
-  // <마감일>
+  // 마감일
   const deadLine = useRef();
   let today = new Date();
   today = today.toISOString();
   today = today.substring(0, 10);
 
   function submit() {
-    //<개발언어>
+    // 개발언어
     let result = [];
     const query = 'input[name="language"]:checked';
     const selectedEls = document.querySelectorAll(query);
@@ -80,16 +82,17 @@ const ProjectCreateModal = () => {
     const projectRequestDto = {
       projectName: projectName.current.value,
       projectDescription: projectDescription.current.value,
-      feCount: feCount.current.value,
-      beCount: beCount.current.value,
-      deCount: deCount.current.value,
+      feCount: parseInt(feCount.current.value),
+      beCount: parseInt(beCount.current.value),
+      deCount: parseInt(deCount.current.value),
       github: github.current.value,
       figma: figma.current.value,
       deadLine: deadLine.current.value,
       language: result,
-      genre: "모바일앱",
+      genre: genre,
       step: step,
     };
+    console.log(genre);
     console.log(projectRequestDto);
     const formData = new FormData();
     formData.append(
@@ -106,8 +109,11 @@ const ProjectCreateModal = () => {
       )
     );
     formData.append("thumbnail", thumbnail);
-    formData.append("infoFiles", file);
-    // dispatch(addProject(formData));
+    formData.append("infoFiles", file1);
+    formData.append("infoFiles", file2);
+    console.log(file1, file2);
+    console.log(genre);
+    dispatch(addProject(formData));
   }
 
   return (
@@ -148,55 +154,56 @@ const ProjectCreateModal = () => {
                 />
                 배포
               </div>
-              <div>
-                <input
-                  type="radio"
-                  value="유지보수"
-                  name="step"
-                  onChange={handleStep}
-                />
-                유지보수
-              </div>
             </Step>
           </ModalTop>
-          {/* 드롭다운 : 모바일앱, 웹 프로그램, 게임, 메타버스 ,블록체인, 임베디드, 데이터베이스 */}
+          {/* 드롭다운 : 모바일 앱, 웹 프로그램, 게임, 메타버스 ,블록체인, 임베디드, 데이터베이스 */}
           <ModalTop>
-            <div>
-              <label>프로젝트 장르</label> <input />
-            </div>
+            <DropDownContainer>
+              <label>프로젝트 장르</label>
+              <DropDown onChange={(e) => handleChange(e)}>
+                <option>선택</option>
+                <option value="모바일 앱">모바일 앱</option>
+                <option value="웹 프로그램">웹 프로그램</option>
+                <option value="게임">게임</option>
+                <option value="메타버스">메타버스</option>
+                <option value="블록체인">블록체인</option>
+                <option value="임베디드">임베디드</option>
+                <option value="데이터베이스">데이터베이스</option>
+              </DropDown>
+            </DropDownContainer>
             <InputLang>
               <label>개발 언어</label>
               <div>
-                Java
                 <input type="checkbox" value="Java" name="language" />
+                Java
               </div>
               <div>
-                Shell
                 <input type="checkbox" value="Shell" name="language" />
+                Shell
               </div>
               <div>
-                JavaScript
                 <input type="checkbox" value="JavaScript" name="language" />
+                JavaScript
               </div>
               <div>
-                Python
                 <input type="checkbox" value="Python" name="language" />
+                Python
               </div>
               <div>
-                HTML
                 <input type="checkbox" value="HTML" name="language" />
+                HTML
               </div>
               <div>
-                Kotlin
                 <input type="checkbox" value="Kotlin" name="language" />
+                Kotlin
               </div>
               <div>
-                CSS
                 <input type="checkbox" value="CSS" name="language" />
+                CSS
               </div>
               <div>
-                TypeScript
                 <input type="checkbox" value="TypeScript" name="language" />
+                TypeScript
               </div>
             </InputLang>
           </ModalTop>
@@ -226,21 +233,18 @@ const ProjectCreateModal = () => {
               <div>
                 피그마 주소 <input ref={figma} />
               </div>
-              {/* <div>
-                노션 주소 <input ref={notion} />
-              </div> */}
               <div>
                 모집 마감일 <input type="date" ref={deadLine} min={today} />
               </div>
               <InputHeadcount>
                 <div>
-                  프론트엔드 <input type="number" ref={feCount} />
+                  프론트엔드 <input type="number" ref={feCount} min="0" />
                 </div>
                 <div>
-                  백엔드 <input type="number" ref={beCount} />
+                  백엔드 <input type="number" ref={beCount} min="0" />
                 </div>
                 <div>
-                  디자이너 <input type="number" ref={deCount} />
+                  디자이너 <input type="number" ref={deCount} min="0" />
                 </div>
               </InputHeadcount>
               <div>
@@ -289,8 +293,26 @@ const ProjectName = styled.div`
 const Step = styled.div`
   display: flex;
 `;
+const DropDownContainer = styled.div`
+  display: flex;
+  label {
+    width: 100px;
+  }
+`;
+const DropDown = styled.select`
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #444;
+  background: #fff;
+  margin-left: 40px;
+`;
 const InputLang = styled.div`
   display: flex;
+  padding-left: 80px;
 `;
 const Description = styled.textarea`
   width: 1100px;

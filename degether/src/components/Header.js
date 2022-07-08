@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import HomeIcon, { NoticeIcon, Profile } from "./icon/Icon";
+import HomeIcon, { NoticeIcon, Profile, LoginModalBtn } from "./icon/Icon";
 
 import SearchBar from "./icon/SearchBar";
 
@@ -19,6 +19,7 @@ const Header = () => {
             <HomeIcon />
             {/* <NoticeIcon /> */}
             <Profile />
+            <LoginModalBtn />
           </IconContainer>
         </MenuBar>
       </MenuContainer>
@@ -26,12 +27,11 @@ const Header = () => {
   );
 };
 const HeaderContainer = styled.div`
-  position: absolute;
-  width: 100%;
+  width: 1888px;
   height: 62px;
-  left: 0px;
   top: 0px;
   background: #2f4a3b;
+  margin: 0 auto;
   div {
     width: 1888px;
     height: 62px;
@@ -44,10 +44,9 @@ const HeaderContainer = styled.div`
   }
 `;
 const MenuContainer = styled.div`
-  position: absolute;
-  width: 100%;
+  width: 1888px;
   height: 120px;
-  left: 0px;
+  margin: 0 auto;
   top: 62px;
   background: #09120e;
   display: flex;
@@ -65,7 +64,7 @@ const MenuBar = styled.div`
 `;
 const IconContainer = styled.div`
   position: absolute;
-  right: 0px;
+  right: 16px;
   top: 40px;
 `;
 

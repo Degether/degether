@@ -44,16 +44,28 @@ const NoticeIcon = () => {
 const Profile = () => {
   return (
     <>
-      <ProfileImg></ProfileImg>
+      <ProfileImg>MY</ProfileImg>
+    </>
+  );
+};
+const LoginModalBtn = () => {
+  return (
+    <>
+      <LoginButton>LOGIN</LoginButton>
     </>
   );
 };
 
 const Home = styled.div`
-  width: 44px;
+  width: 45px;
   height: 40px;
   :hover {
     cursor: pointer;
+  }
+  path {
+    :hover {
+      fill: #444;
+    }
   }
 `;
 const Notice = styled.div`
@@ -62,13 +74,40 @@ const Notice = styled.div`
   }
 `;
 const ProfileImg = styled.div`
-  width: 40px;
+  width: 50px;
   height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #444;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 22px;
+  color: #fff;
+  :hover {
+    cursor: pointer;
+    background: #efefef;
+    color: #09120e;
+  }
+`;
+const LoginButton = styled.button`
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 22px;
+  color: #fff;
+  outline: none;
+  border: none;
   background: #444;
   border-radius: 10px;
   :hover {
     cursor: pointer;
+    background: #efefef;
+    color: #09120e;
   }
 `;
 export default HomeIcon;
-export { NoticeIcon, Profile };
+export { NoticeIcon, Profile, LoginModalBtn };

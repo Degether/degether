@@ -1,30 +1,21 @@
+import React, { useState } from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
 import Card from "../components/main/Card";
 import ProjectCreateModal from "../components/main/ProjectCreateModal";
 import LoginContainer from "../components/login/LoginContainer";
 import ProjectSidebarContainer from "../components/projectSidebar/ProjectSidebarContainer";
-import { useState } from "react";
 
 function Main() {
-  const [createModal, setCreateModal] = useState(true);
+  const [createModal, setCreateModal] = useState(false);
 
   return (
     <>
-      <Header />
       <MainContainer>
         {createModal === true ? <ProjectCreateModal /> : null}
         <CardGrid>
-          {Array.from({ length: 20 }, (item, idx) => {
-            return (
-              <div key={idx}>
-                <Card />
-              </div>
-            );
-          })}
+          <Card />
         </CardGrid>
-        <ProjectSidebarContainer />
-        {/* <LoginContainer /> */}
+        <LoginContainer />
       </MainContainer>
     </>
   );
@@ -36,8 +27,9 @@ const MainContainer = styled.div`
   margin: 0 auto;
 `;
 const CardGrid = styled.div`
-  min-width: 1435px;
-  margin-top: 215px;
+  min-width: 1365px;
+  padding-top: 32px;
+  margin-left: 32px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(6, 218px);
