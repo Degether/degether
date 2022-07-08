@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
 import Card from "../components/main/Card";
 import ProjectCreateModal from "../components/main/ProjectCreateModal";
 import LoginContainer from "../components/login/LoginContainer";
@@ -11,7 +10,6 @@ function Main() {
 
   return (
     <>
-      <Header />
       <MainContainer>
         {createModal === true ? <ProjectCreateModal /> : null}
         <CardGrid>

@@ -5,3 +5,11 @@
   font-family: "Noto Sans KR", sans-serif;
   color: #09120e;
 }
+.App {
+  width: 1920px;
+  height: 1080px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: block;
+}

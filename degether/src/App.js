@@ -12,11 +12,12 @@ import ProjectAdmin from "./pages/ProjectAdmin";
 import KakaoOAuthRedirectHandler from "./components/login/KakaoOAuthRedirectHandler";
 import NaverOAuthRedirectHandler from "./components/login/NaverOAuthRedirectHandler";
 import GoogleOAuthRedirectHandler from "./components/login/GoogleOAuthRedirectHandler";
-
+import styled from "styled-components";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/mypage" element={<MyPage />} />
@@ -36,7 +37,6 @@ function App() {
           path="/auth/google/callback"
           element={<GoogleOAuthRedirectHandler />}
         />
-
       </Routes>
     </div>
   );

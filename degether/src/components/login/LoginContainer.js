@@ -12,10 +12,7 @@ function LoginContainer() {
     <LoginContainerWrap>
       <LoginTitle>LOGIN</LoginTitle>
       <LoginBackgroundImage>
-        <ImgWrap>
-          <Logo src="img/logo.svg" />
-          <Degether src="./images/Degether.png" />
-        </ImgWrap>
+        <img src="./images/Degether.png" />
       </LoginBackgroundImage>
       <GoogleLoginBtn onClick={LoginGoogle}>
         <img src="./images/GoogleIcon.png" />
@@ -66,7 +63,7 @@ const LoginContainerWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 16px;
+  margin-right: 24px;
 `;
 
 const LoginTitle = styled.div`
@@ -84,21 +81,12 @@ const LoginBackgroundImage = styled.div`
   width: 421px;
   height: 422px;
   margin-top: 40px;
+  img {
+    width: 421px;
+    height: 422px;
+  }
 `;
-const ImgWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-const Logo = styled.img`
-  width: 164px;
-  height: 41.5px;
-  position: absolute;
-`;
-const Degether = styled.img`
-  width: 421px;
-  height: 422px;
-`;
+
 const GoogleLoginBtn = styled.div`
   width: 421px;
   height: 54px;
